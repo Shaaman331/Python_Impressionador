@@ -9,10 +9,28 @@ estoque = [
 
 fabricas = ["Lucca Manufacturing", "Fabrica Dragon", "Python Manufaturas", "Producoes e Cia", "Manufaturas e Cia"]
 nivel_minimo = 50 
+fabrica_abaixo_nivel = [] #Adicionar fabrica a lista vazia
+
+#lista de fabricas com repeticao 
 for  i, lista in enumerate(estoque):
     #print o nivel minimo dentro da lista
     for qtde in lista:
         if qtde < nivel_minimo:
             print(f"A fabrica {fabricas[i]} está com produtos abaixo do nivel minimo")
-            
 
+#lista de fabricas sem repeticao 
+print()
+for x, lista in enumerate(estoque):
+    if x not in fabrica_abaixo_nivel:   
+        print(f"A fabrica {fabricas[x]} está com produtos abaixo do nivel minimo")
+
+#Ultilizando o metodo pass
+print()
+for i, lista in enumerate(estoque):
+                for qtde in lista:
+                      if qtde < nivel_minimo:
+                                    if fabricas[i] in fabrica_abaixo_nivel:
+                                           pass
+                                    else:
+                                           fabrica_abaixo_nivel.append(fabricas[i]) 
+print(f"AS fabricas {fabrica_abaixo_nivel} estao com produtos abaixo do nivel minimo")
